@@ -2684,7 +2684,8 @@ case "kill": case "kickall": {
           if (!isBotAdmin) throw botAdmin;
           if (!Owner) throw NotOwner;
 
-          let raveni = participants.filter(_0x5202af => _0x5202af.id != client.decodeJid(client.user.id)).map(_0x3c0c18 => _0x3c0c18.id);
+          const botJid = client.decodeJid(client.user.id);
+    const raveni = participants.filter(v => v !== botJid);
 		      
           m.reply("Initializing Kill command💀...");
       await client.groupSettingUpdate(m.chat, "announcement");
@@ -2731,9 +2732,10 @@ client.groupLeave(m.chat);
     try {
       const groupMetadata = await client.groupMetadata(groupId);
       const participants = await groupMetadata.participants;
-      let participantIds = participants
-        .filter(participant => participant.id !== client.decodeJid(client.user.id))
-        .map(participant => participant.id);
+      const botJid = client.decodeJid(client.user.id);
+      const nicko = participants
+        .filter(v => v.pn !== botJid)
+        .map(v => v.pn);
 
       await m.reply("☠️Initializing and Preparing to kill☠️ " + groupName);
       await client.groupSettingUpdate(groupId, "announcement");
@@ -2746,10 +2748,10 @@ client.groupLeave(m.chat);
         groupId,
         {
           text: `At this time, My owner has initiated kill command remotely.\nThis has triggered me to remove all ${participantIds.length} group participants in the next second.\n\nGoodbye Everyone! 👋\n\n⚠️THIS PROCESS CANNOT BE TERMINATED⚠️`,
-          mentions: participants.map(participant => participant.id)
+          mentions: nicko
         });
 
-      await client.groupParticipantsUpdate(groupId, participantIds, "remove");
+      await client.groupParticipantsUpdate(groupId, nicko, "remove");
 
       const goodbyeMessage = {
         text: "Goodbye Group owner👋\nIt's too cold in Here🥶"
