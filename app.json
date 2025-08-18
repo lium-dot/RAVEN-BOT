@@ -20,16 +20,11 @@
   "success_url": "/",
   "env": {
     "DEV": {
-      "description": "Put any phone numbers you want to be bot owner without + or spaces \",\" Ex: 254114660061,254780147229",
+      "description": "Enter the Bot number here without + or spaces \",\" Ex: 254114660061,254780147229",
       "required": true
     },
     "HEROKU_API": {
-      "description": "Put a Heroku API key here, will be required to update your bot",
-      "required": false
-    },
-    "BAD_WORD": {
-      "description": "List words separated with commas that will be considered bad. Example: fuck, pussy, hoe",
-      "value": "fuck,pussy,slut,bitch,cock,stupid",
+      "description": "Put a Heroku account Api key here, will be required to update your bot without redeploying again",
       "required": false
     },
     "CODE": {
@@ -42,12 +37,8 @@
       "required": true
     },
     "APP_NAME": {
-      "description": "repeat the appname you filled above, lowercase",
+      "description": "repeat the appname you entered above, use lowercase letters",
       "required": true
-    },
-    "DATABASE_URL": {
-      "description": "PostgreSQL connection string, it will be automatically added by Heroku Postgres add-on, leave it blank",
-      "required": false
     }
   },
   "buildpacks": [
