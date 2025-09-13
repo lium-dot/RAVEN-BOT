@@ -317,9 +317,11 @@ if (wapresence === 'online') {
       }	else if (wapresence === 'recording') { 
              client.sendPresenceUpdate('recording', Grace);
              
-    } else (wapresence === 'offline') {
+    } else if (wapresence === 'offline') {
              client.sendPresenceUpdate('unavailable', Grace);
-    }
+    } else {
+	   client.sendPresenceUpdate('unaavailable', Grace);
+}
 //========================================================================================================================//    
 if (cmd && mode === 'private' && !itsMe && !Owner && m.sender !== dev) {
 return;
