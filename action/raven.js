@@ -317,7 +317,7 @@ if (wapresence === 'online') {
       }	else if (wapresence === 'recording') { 
              client.sendPresenceUpdate('recording', Grace);
              
-    } else {
+    } else (wapresence === 'offline') {
              client.sendPresenceUpdate('unavailable', Grace);
     }
 //========================================================================================================================//    
