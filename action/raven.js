@@ -949,7 +949,7 @@ case "wapresence": {
   const settings = await getSettings();
   const current = settings.wapresence;
   if (!text) return reply(`👤 Presence is currently *${current}*`);
-  if (!["typing", "online", "recording"].includes(text)) return reply("Usage: wapresence typing/online/recording");
+  if (!["typing", "online", "offline", "recording"].includes(text)) return reply("Usage: wapresence typing/online/offline/recording");
   if (text === current) return reply(`✅ Presence is already *${text}*`);
   await updateSetting("wapresence", text);
   reply(`✅ Presence updated to *${text}*`);
