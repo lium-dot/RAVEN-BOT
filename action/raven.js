@@ -2579,7 +2579,7 @@ break;
       return _0x14b65d;
     }
     const _0x22a6bb = {
-      model: "gemini-1.5-flash"
+      model: "gemini-2.5-flash"
     };
     const _0x42849d = _0x4e9e6a.getGenerativeModel(_0x22a6bb);
     const _0x2c743f = [await _0x309a3c(_0x3dfb7c, "image/jpeg")];
@@ -3072,9 +3072,7 @@ m.reply("An error occured.")
         audio: {
           url: audiovn
         },
-        mimetype: 'audio/mp4',
-        ptt: true,
-        waveform:  [100, 0, 100, 0, 100, 0, 100],
+        mimetype: 'audio/mpeg',
         fileName: "𝗥𝗮𝘃𝗲𝗻",
 
         contextInfo: {
@@ -4703,8 +4701,8 @@ if (!text) return m.reply("𝗣𝗿𝗼𝘃𝗶𝗱𝗲 𝗮 𝘃𝗮𝗹𝗶�
   case "apk":
       case "app":{
           if (!text) return reply("Where is the app name?");
-        let kyuu = await fetchJson (`https://bk9.fun/search/apk?q=${text}`);
-        let tylor = await fetchJson (`https://bk9.fun/download/apk?id=${kyuu.BK9[0].id}`);
+        let kyuu = await fetchJson (`https://api.bk9.dev/search/apk?q=${text}`);
+        let tylor = await fetchJson (`https://api.bk9.dev/download/apk?id=${kyuu.BK9[0].id}`);
          await client.sendMessage(
               m.chat,
               {
