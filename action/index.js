@@ -73,6 +73,7 @@ try {
   );
 
   const client = ravenConnect({
+    version,
     logger: pino({ level: "silent" }),
     printQRInTerminal: false,
     browser: ["RAVEN-AI", "Safari", "5.1.7"],
